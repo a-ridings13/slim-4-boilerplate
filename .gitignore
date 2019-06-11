@@ -1,0 +1,17 @@
+.idea
+vendor
+.vagrant
+node_modules
+var/cache
+composer.lock
+package-lock.json
+ubuntu-xenial-16.04-cloudimg-console.log
+
+var/config/config.php
+
+public/js/app.min.js
+public/js/app.min.js.map
+public/js/styles.min.js
+public/js/styles.min.js.map
+
+var/log
