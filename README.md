@@ -2,7 +2,7 @@
 
 # NOT YET FOR PRODUCTION USE.
 The slim4.0 framework is still in beta.  Keep upto date [here](http://www.slimframework.com/blog/).
-
+This is my first past at a slim 4.0 application implementation.  It's still very incomplete.
 
 ## What is this?
 
