@@ -1,5 +1,9 @@
 # Siteworx Professionals Boiler Plate
 
+# NOT YET FOR PRODUCTION USE.
+The slim4.0 framework is still in beta.  Keep upto date [here](http://www.slimframework.com/blog/).
+
+
 ## What is this?
 
 This is a starting point that I use for all of my projects.  It's got the basics of what I need for most projects.
@@ -47,7 +51,7 @@ making Vue dev tools available.
 
 Slim is the base framework I use for all my projects.  It's simple and to the point.  It does what it needs to do and just that. 
 
-More information can be found [here](http://www.slimframework.com/) about the slim php framework slim php.  Routes are registered in Library\App.  Controllers must extend the 
+More information can be found [here](http://slim-website.lgse.com/docs/v4/) about the slim php framework slim php.  Routes are registered in Library\App.  Controllers must extend the 
 abstract base controller
 
 ### Twig
