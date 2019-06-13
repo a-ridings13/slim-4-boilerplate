@@ -2,7 +2,7 @@
 
 require '../vendor/autoload.php';
 
-use App\Library\Application\App;
+use App\Library\Application\Core;
 use App\Library\Http\RequestFactory;
 use Whoops\Handler\PrettyPageHandler;
 
@@ -11,7 +11,7 @@ use Whoops\Handler\PrettyPageHandler;
 | Get Ready....
 |--------------------------------------------------------------------------
 */
-$app = App::factory();
+$app = Core::factory();
 
 /*
 |--------------------------------------------------------------------------

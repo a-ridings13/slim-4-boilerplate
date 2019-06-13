@@ -7,6 +7,7 @@ use App\Library\Application\Handlers\{ErrorHandler, NotAuthorizedHandler, NotFou
 use App\Library\Http\Exceptions\{NotAuthorizedException, NotFoundException};
 use App\Library\Http\ResponseFactory;
 use App\Middleware\{ApiMiddleware, OAuthMiddleware, SanitizationMiddleware};
+use Slim\App;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Middleware\ErrorMiddleware;
 
@@ -17,7 +18,7 @@ use Slim\Middleware\ErrorMiddleware;
  *
  * @package App\Library\Application
  */
-class App extends \Slim\App
+final class Core extends App
 {
 
     /**
@@ -50,7 +51,7 @@ class App extends \Slim\App
     }
 
     /**
-     * @return App
+     * @return Core
      */
     private static function app(): self
     {

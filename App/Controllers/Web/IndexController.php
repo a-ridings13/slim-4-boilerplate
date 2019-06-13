@@ -3,7 +3,7 @@
 namespace App\Controllers\Web;
 
 use App\Controllers\Controller;
-use App\Library\Application\App;
+use App\Library\Application\Core;
 use App\Library\Http\{Request, Response};
 use Twig\Error\{LoaderError, RuntimeError, SyntaxError};
 
@@ -21,7 +21,7 @@ final class IndexController extends Controller
     public function getAction(Request $request, Response $response, array $params = []): Response
     {
         return $response->write(
-            App::di()->view->render('Index')
+            Core::di()->view->render('Index')
         );
     }
 }
