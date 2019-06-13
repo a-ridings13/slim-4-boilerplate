@@ -2,12 +2,21 @@
 
 namespace App\Library\Application;
 
+use App\Controllers\Web\IndexController;
 use App\Library\Application\Handlers\{ErrorHandler, NotAuthorizedHandler, NotFoundHandler};
 use App\Library\Http\Exceptions\{NotAuthorizedException, NotFoundException};
 use App\Library\Http\ResponseFactory;
+use App\Middleware\{ApiMiddleware, OAuthMiddleware, SanitizationMiddleware};
 use Slim\Exception\HttpNotFoundException;
 use Slim\Middleware\ErrorMiddleware;
 
+/**
+ * Class App
+ *
+ * @method Container getContainer()
+ *
+ * @package App\Library\Application
+ */
 class App extends \Slim\App
 {
 
@@ -35,6 +44,8 @@ class App extends \Slim\App
         $errorMiddleware->setDefaultErrorHandler(ErrorHandler::class);
         $app->add($errorMiddleware);
 
+        $app->registerRoutes();
+
         return $app;
     }
 
@@ -60,5 +71,13 @@ class App extends \Slim\App
     private function getAppContainer(): Container
     {
         return $this->container;
+    }
+
+    private function registerRoutes(): void
+    {
+        $this->get('[/]', IndexController::class . ':getAction');
+        $this->add(new ApiMiddleware());
+        $this->add(new SanitizationMiddleware());
+        $this->add(new OAuthMiddleware());
     }
 }

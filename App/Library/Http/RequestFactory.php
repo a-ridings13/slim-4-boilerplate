@@ -16,9 +16,12 @@ final class RequestFactory
         $uri = (new UriFactory())->createFromGlobals($_SERVER);
 
         $headers = Headers::createFromGlobals();
-        $cookies = Cookies::parseHeader($headers->getHeader('Cookie', []));
+        $cookies = Cookies::parseHeader($headers->getHeader('Cookie'));
 
         $body = (new StreamFactory())->createStream();
+        $body->write(file_get_contents('php://input'));
+        $body->rewind();
+
         $uploadedFiles = UploadedFile::createFromGlobals($_SERVER);
 
         $request = new Request($method ?? 'GET', $uri, $headers, $cookies, $_SERVER, $body, $uploadedFiles);
